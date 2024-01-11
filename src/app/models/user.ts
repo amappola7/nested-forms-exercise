@@ -1,3 +1,5 @@
+import { Address } from "./address";
+
 export interface User {
   username: string,
   firstName: string,
@@ -5,5 +7,6 @@ export interface User {
   surName: string,
   secondSurname: string,
   email: string,
-  password: string
+  password: string,
+  address: Address
 }
