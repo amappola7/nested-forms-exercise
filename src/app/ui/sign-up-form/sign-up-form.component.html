@@ -1,1 +1,207 @@
-<p>sign-up-form works!</p>
+<section class="register-form">
+  <h2>Register Form</h2>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="control-container">
+      <label class="lbl" for="username">Username</label>
+      <input class="ipt" id="username" formControlName="username" type="text" />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('username')?.invalid &&
+          (signUpForm.get('?username')?.dirty ||
+            signUpForm.get('username')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('username')?.hasError('required')"
+          >Username is required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('username')?.hasError('minlength')"
+          >Username has to have at least 4 characters</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="firstName">First Name</label>
+      <input
+        class="ipt"
+        id="firstName"
+        formControlName="firstName"
+        type="text"
+      />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('firstName')?.invalid &&
+          (signUpForm.get('firstName')?.dirty ||
+            signUpForm.get('firstName')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('firstName')?.hasError('required')"
+          >First name is required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('firstName')?.hasError('maxlength')"
+          >First name can have a maximum of 80 characters</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('firstName')?.hasError('pattern')"
+          >Just letters are allowed</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="secondName">Second Name</label>
+      <input
+        class="ipt"
+        id="secondName"
+        formControlName="secondName"
+        type="text"
+      />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('secondName')?.invalid &&
+          (signUpForm.get('secondName')?.dirty ||
+            signUpForm.get('secondName')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('secondName')?.hasError('maxlength')"
+          >Second name can have a maximum of 80 characters</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('secondName')?.hasError('pattern')"
+          >Just letters are allowed</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="surname">Surname</label>
+      <input class="ipt" id="surname" formControlName="surname" type="text" />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('surname')?.invalid &&
+          (signUpForm.get('surname')?.dirty ||
+            signUpForm.get('surname')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('surname')?.hasError('required')"
+          >Surname is required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('surname')?.hasError('maxlength')"
+          >Surname can have a maximum of 80 characters</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('surname')?.hasError('pattern')"
+          >Just letters are allowed</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="secondSurname">Second Surname</label>
+      <input
+        class="ipt"
+        id="secondSurname"
+        formControlName="secondSurname"
+        type="text"
+      />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('secondSurname')?.invalid &&
+          (signUpForm.get('secondSurname')?.dirty ||
+            signUpForm.get('secondSurname')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('secondSurname')?.hasError('maxlength')"
+          >Second surname can have a maximum of 80 characters</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('secondSurname')?.hasError('pattern')"
+          >Just letters are allowed</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="email">Email</label>
+      <input class="ipt" id="email" formControlName="email" type="email" />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('email')?.invalid &&
+          (signUpForm.get('email')?.dirty ||
+            signUpForm.get('email')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('email')?.hasError('required')"
+          >Email is required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('email')?.hasError('email')"
+          >Invalid email</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('email')?.hasError('existentEmail')"
+          >This email already exists</span
+        >
+      </div>
+    </div>
+    <div class="control-container">
+      <label class="lbl" for="password">Password</label>
+      <input
+        class="ipt"
+        id="password"
+        formControlName="password"
+        type="password"
+      />
+      <div
+        class="errors-list"
+        *ngIf="
+          signUpForm.get('password')?.invalid &&
+          (signUpForm.get('password')?.dirty ||
+            signUpForm.get('password')?.touched)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('password')?.hasError('required')"
+          >Password is required</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('password')?.hasError('minlength')"
+          >Password has to have at least 6 characters</span
+        >
+        <span
+          class="error-message"
+          *ngIf="signUpForm.get('password')?.hasError('pattern')"
+          >Invalid characters, you can only use letters, digits and #$%&-_</span
+        >
+      </div>
+    </div>
+    <button>Submit</button>
+  </form>
+</section>
