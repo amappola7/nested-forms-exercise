@@ -46,10 +46,20 @@ export class SignUpFormComponent {
       address: this.fb.group({
         street: ['', Validators.required],
         city: ['', [Validators.required]],
-        zip: [-1, [Validators.min(5)]]
+        zip: ['', [Validators.min(5), Validators.max(5)]]
       })
     });
   };
 
-  onSubmit(){};
+  onSubmit(){
+    if (this.signUpForm.valid) {
+      console.log('Successfully registered', this.signUpForm.value);
+      // this.userService.addUser(userMapper(this.signUpForm.value));
+      this.signUpForm.reset();
+      // console.log(this.userService.getUsers());
+    } else {
+      console.log('Invalid form', this.signUpForm.value);
+      this.signUpForm.markAllAsTouched();
+    }
+  };
 }

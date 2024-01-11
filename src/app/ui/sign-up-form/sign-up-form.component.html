@@ -1,14 +1,14 @@
-<section class="register-form">
+<section class="sign-up__form">
   <h2>Register Form</h2>
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="control-container">
+    <div class="  __control control-container">
       <label class="lbl" for="username">Username</label>
       <input class="ipt" id="username" formControlName="username" type="text" />
       <div
         class="errors-list"
         *ngIf="
           signUpForm.get('username')?.invalid &&
-          (signUpForm.get('?username')?.dirty ||
+          (signUpForm.get('username')?.dirty ||
             signUpForm.get('username')?.touched)
         "
       >
@@ -24,7 +24,7 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="first-name__control control-container">
       <label class="lbl" for="firstName">First Name</label>
       <input
         class="ipt"
@@ -57,7 +57,7 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="second-name__control control-container">
       <label class="lbl" for="secondName">Second Name</label>
       <input
         class="ipt"
@@ -85,7 +85,7 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="surname__control control-container">
       <label class="lbl" for="surname">Surname</label>
       <input class="ipt" id="surname" formControlName="surname" type="text" />
       <div
@@ -113,7 +113,7 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="second-surname__control control-container">
       <label class="lbl" for="secondSurname">Second Surname</label>
       <input
         class="ipt"
@@ -141,15 +141,14 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="email__control control-container">
       <label class="lbl" for="email">Email</label>
       <input class="ipt" id="email" formControlName="email" type="email" />
       <div
         class="errors-list"
         *ngIf="
           signUpForm.get('email')?.invalid &&
-          (signUpForm.get('email')?.dirty ||
-            signUpForm.get('email')?.touched)
+          (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)
         "
       >
         <span
@@ -169,7 +168,7 @@
         >
       </div>
     </div>
-    <div class="control-container">
+    <div class="password__control control-container">
       <label class="lbl" for="password">Password</label>
       <input
         class="ipt"
@@ -200,6 +199,72 @@
           *ngIf="signUpForm.get('password')?.hasError('pattern')"
           >Invalid characters, you can only use letters, digits and #$%&-_</span
         >
+      </div>
+    </div>
+    <div class="address__container" formGroupName="address">
+      <div class="street__control control-container">
+        <label class="lbl" for="street">Street</label>
+        <input class="ipt" id="street" formControlName="street" type="text" />
+        <div
+          class="errors-list"
+          *ngIf="
+            signUpForm.get('address.street')?.invalid &&
+            (signUpForm.get('address.street')?.dirty ||
+              signUpForm.get('address.street')?.touched)
+          "
+        >
+          <span
+            class="error-message"
+            *ngIf="signUpForm.get('address.street')?.hasError('required')"
+            >Street is required</span
+          >
+        </div>
+      </div>
+      <div class="city__control control-container">
+        <label class="lbl" for="city">City</label>
+        <input class="ipt" id="city" formControlName="city" type="text" />
+        <div
+          class="errors-list"
+          *ngIf="
+            signUpForm.get('address.city')?.invalid &&
+            (signUpForm.get('address.city')?.dirty ||
+              signUpForm.get('address.city')?.touched)
+          "
+        >
+          <span
+            class="error-message"
+            *ngIf="signUpForm.get('address.city')?.hasError('required')"
+            >City is required</span
+          >
+        </div>
+      </div>
+      <div class="zip__control control-container">
+        <label class="lbl" for="zip">Zip Code</label>
+        <input class="ipt" id="zip" formControlName="zip" type="number" />
+        <div
+          class="errors-list"
+          *ngIf="
+            signUpForm.get('address.zip')?.invalid &&
+            (signUpForm.get('address.zip')?.dirty ||
+              signUpForm.get('address.zip')?.touched)
+          "
+        >
+          <span
+            class="error-message"
+            *ngIf="signUpForm.get('address.zip')?.hasError('required')"
+            >Zip is required</span
+          >
+          <span
+            class="error-message"
+            *ngIf="signUpForm.get('address.zip')?.hasError('minlength')"
+            >Zip code has 5 digits
+          </span>
+          <span
+            class="error-message"
+            *ngIf="signUpForm.get('address.zip')?.hasError('maxlength')"
+            >Zip code has 5 digits
+          </span>
+        </div>
       </div>
     </div>
     <button>Submit</button>
