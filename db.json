@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "username": "joDoe",
+      "fullName": "John Doe",
+      "email": "john@example.com",
+      "password": "password1",
+      "address": {
+        "street": "Landers Street",
+        "city": "San Francisco",
+        "zip": 94016
+      }
+    },
+    {
+      "username": "jaDoe",
+      "fullName": "Jane Doe",
+      "email": "jane@example.com",
+      "password": "password2",
+      "address": {
+        "street": "Edna Avenue",
+        "city": "Las Vegas",
+        "zip": 88901
+      }
+    }
+  ]
+}
