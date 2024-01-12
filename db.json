@@ -3,7 +3,10 @@
     {
       "id": 1,
       "username": "joDoe",
-      "fullName": "John Doe",
+      "firstName": "John",
+      "secondName": null,
+      "surname": "Doe",
+      "secondSurname": null,
       "email": "john@example.com",
       "password": "password1",
       "address": {
@@ -15,7 +18,10 @@
     {
       "id": 2,
       "username": "jaDoe",
-      "fullName": "Jane Doe",
+      "firstName": "Jane",
+      "secondName": null,
+      "surname": "Doe",
+      "secondSurname": null,
       "email": "jane@example.com",
       "password": "password2",
       "address": {
