@@ -1,7 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
       "username": "joDoe",
       "firstName": "John",
       "secondName": null,
@@ -13,10 +12,11 @@
         "street": "Landers Street",
         "city": "San Francisco",
         "zip": 94016
-      }
+      },
+      "id": 1
     },
     {
-      "id": 2,
+
       "username": "jaDoe",
       "firstName": "Jane",
       "secondName": null,
@@ -28,7 +28,23 @@
         "street": "Edna Avenue",
         "city": "Las Vegas",
         "zip": 88901
-      }
+      },
+      "id": 2
+    },
+    {
+      "username": "amappola7",
+      "firstName": "Ana",
+      "secondName": "Maria",
+      "surname": "Porras",
+      "secondSurname": "Pinto",
+      "email": "aporras2@slb.com",
+      "password": "123asdfg-",
+      "address": {
+        "street": "King's road",
+        "city": "London",
+        "zip": 12345
+      },
+      "id": 3
     }
   ]
 }

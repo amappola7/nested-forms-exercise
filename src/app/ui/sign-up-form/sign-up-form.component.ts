@@ -66,7 +66,11 @@ export class SignUpFormComponent {
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      console.log('Successfully registered', this.signUpForm.value);
+      this.userService.createUser(this.signUpForm.value)
+      .subscribe(() => {
+        console.log('Success');
+      });
+
       this.signUpForm.reset();
     } else {
       console.log('Invalid form', this.signUpForm.value);
