@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { UniqueEmailValidator } from 'src/app/utils/validators/email-validator';
 
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
-  styleUrls: ['./sign-up-form.component.scss']
+  styleUrls: ['./sign-up-form.component.scss'],
 })
 export class SignUpFormComponent {
   signUpForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private uniqueEmailValidator: UniqueEmailValidator
+  ) {
     this.signUpForm = this.fb.group({
       username: ['', [Validators.required, Validators.min(4)]],
       firstName: [
@@ -34,7 +39,15 @@ export class SignUpFormComponent {
         '',
         [Validators.max(80), Validators.pattern('[a-zA-Z ]*')],
       ],
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [Validators.required, Validators.email],
+        (control: FormControl) => this.uniqueEmailValidator.validate(control)
+        ,
+        {
+          updateOn: 'blur',
+        }
+      ],
       password: [
         '',
         [
@@ -46,20 +59,18 @@ export class SignUpFormComponent {
       address: this.fb.group({
         street: ['', Validators.required],
         city: ['', [Validators.required]],
-        zip: ['', [Validators.min(5), Validators.max(5)]]
-      })
+        zip: ['', [Validators.min(5), Validators.max(5)]],
+      }),
     });
-  };
+  }
 
-  onSubmit(){
+  onSubmit() {
     if (this.signUpForm.valid) {
       console.log('Successfully registered', this.signUpForm.value);
-      // this.userService.addUser(userMapper(this.signUpForm.value));
       this.signUpForm.reset();
-      // console.log(this.userService.getUsers());
     } else {
       console.log('Invalid form', this.signUpForm.value);
       this.signUpForm.markAllAsTouched();
     }
-  };
+  }
 }
