@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "username": "joDoe",
       "fullName": "John Doe",
       "email": "john@example.com",
@@ -12,6 +13,7 @@
       }
     },
     {
+      "id": 2,
       "username": "jaDoe",
       "fullName": "Jane Doe",
       "email": "jane@example.com",
