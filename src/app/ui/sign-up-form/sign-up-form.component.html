@@ -251,12 +251,7 @@
         >
           <span
             class="error-message"
-            *ngIf="signUpForm.get('address.zip')?.hasError('minlength')"
-            >Zip code has 5 digits
-          </span>
-          <span
-            class="error-message"
-            *ngIf="signUpForm.get('address.zip')?.hasError('maxlength')"
+            *ngIf="signUpForm.get('address.zip')?.hasError('pattern')"
             >Zip code has 5 digits
           </span>
         </div>
