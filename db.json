@@ -16,7 +16,6 @@
       "id": 1
     },
     {
-
       "username": "jaDoe",
       "firstName": "Jane",
       "secondName": null,
@@ -45,6 +44,21 @@
         "zip": 12345
       },
       "id": 3
+    },
+    {
+      "username": "higgs_caramelo",
+      "firstName": "Higgs",
+      "secondName": "",
+      "surname": "Porras",
+      "secondSurname": "",
+      "email": "higgins@gmail.com",
+      "password": "12345asdf-",
+      "address": {
+        "street": "Carrera 3",
+        "city": "Susacón",
+        "zip": 15088
+      },
+      "id": 4
     }
   ]
 }
